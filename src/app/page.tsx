@@ -119,36 +119,38 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="hero">
-          <div className="wrap hero-grid">
-            <div>
-              <p className="eyebrow">Wedding planning &amp; design · Mumbai · Bahrain</p>
-              <h1>More Than<br/>A <em>Wedding</em></h1>
-              <p className="lead">Celebrations that feel natural, meaningful and distinctly personal.</p>
-              <div className="datecheck" role="group" aria-label="Check your date">
-                <label><span>Wedding month</span><select value={dateMonth} onChange={e=>setDateMonth(e.target.value)}><option value="">Choose a month</option>{months.map(m=><option key={m}>{m}</option>)}</select></label>
-                <label><span>Wedding location</span><input value={dateCity} onChange={e=>setDateCity(e.target.value)} type="text" placeholder="City or venue" /></label>
-                <a className="btn" href={dateHref} target="_blank" rel="noopener">Check your date ↗</a>
+        <section className="reference-hero">
+          <div className="reference-hero-media"><img src="/images/0007-227c860a.webp" alt="Wedding celebration at a beautifully decorated venue in Udaipur" width={1800} height={2250} fetchPriority="high" /></div>
+          <div className="reference-hero-overlay"></div>
+          <div className="reference-hero-content">
+            <Reveal delay={.08} y={42}>
+              <p className="reference-kicker">WEDDING PLANNING &amp; DESIGN · MUMBAI · BAHRAIN</p>
+              <h1>More Than<br/><em>A Wedding</em></h1>
+              <p className="reference-sub">Celebrations that feel natural, meaningful and distinctly personal.</p>
+              <div className="reference-actions">
+                <a className="gold-pill" href="/plan">CHECK YOUR DATE <span>↗</span></a>
+                <a className="outline-pill" href="#celebrations">EXPLORE OUR WORK <span>↓</span></a>
               </div>
-              <p className="reply-note">Opens WhatsApp with your details ready to send. We reply personally.</p>
-            </div>
-
-            <div className="day">
-              <div className="hero-arch-photo" aria-label="A wedding celebration in Udaipur">
-                <img src="/images/0007-227c860a.webp" alt="Outdoor wedding ceremony and floral arch at a celebration in Udaipur" width={1200} height={1500} fetchPriority="high" />
-                <div className="hero-photo-wash" style={{ opacity: Math.max(0, Math.min(0.48, (time - 18.5) / 5 * 0.48)) }} />
-                <div className="hero-photo-time">{fmt(time)}</div>
-                <div className="hero-photo-caption">A sample day · Udaipur</div>
-              </div>
-              <div className="scrub">
-                <div className="scrub-top"><span className="clock">{fmt(time)}</span><button className="play" type="button" onClick={()=>setPlaying(v=>!v)}>{playing?'Pause':'Play the day'}</button></div>
-                <input type="range" min="6" max="23.5" step=".25" value={time} onChange={e=>{setPlaying(false);setTime(Number(e.target.value))}} aria-label="Time of day on the wedding day"/>
-                <h2 className="ev-title" aria-live="polite">{events[eventIndex].title}</h2><p className="ev-body" aria-live="polite">{events[eventIndex].body}</p>
-                <div className="stops">{events.map(e=><button key={e.t} className="stop" aria-pressed={eventIndex===events.indexOf(e)} onClick={()=>{setPlaying(false);setTime(e.t)}}>{fmt(e.t)} {e.short}</button>)}</div>
-                <p className="sample-note">A sample run of show. Every real day is built around your rituals.</p>
-              </div>
-            </div>
+            </Reveal>
           </div>
+          <div className="reference-scroll"><span>SCROLL TO EXPLORE</span><i></i></div>
+        </section>
+
+        <section className="reference-day">
+          <Reveal>
+            <div className="day-wrap">
+              <div className="day-clock">{fmt(time)}</div>
+              <button className="day-play" type="button" onClick={()=>setPlaying(v=>!v)}>{playing?'PAUSE THE DAY':'PLAY THE DAY'}</button>
+              <input className="day-range" type="range" min="6" max="23.5" step=".25" value={time} onChange={e=>{setPlaying(false);setTime(Number(e.target.value))}} aria-label="Time of day on the wedding day" />
+              <div className="day-copy">
+                <p className="day-eyebrow">A SAMPLE DAY · UDAIPUR</p>
+                <h2>{events[eventIndex].title}</h2>
+                <p>{events[eventIndex].body}</p>
+              </div>
+              <div className="day-stops">{events.map((e,i)=><button key={e.t} className={eventIndex===i?'active':''} onClick={()=>{setPlaying(false);setTime(e.t)}}>{fmt(e.t)} <span>{e.short}</span></button>)}</div>
+              <p className="day-note">A sample run of show. Every real day is built around your rituals.</p>
+            </div>
+          </Reveal>
         </section>
 
         <section className="belief"><Reveal><div className="wrap belief-grid"><p className="eyebrow">We believe</p><div><p className="big">The most memorable celebrations aren’t defined by how grand they are, but by how <em>seamlessly</em> they unfold.</p><p className="sub">Intuitive planning. Intentional design. A day beautifully lived.</p></div></div></Reveal></section>
