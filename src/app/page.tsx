@@ -14,12 +14,12 @@ import { Chatbot } from '@/components/ui/Chatbot'
 export default function Home() {
   return (
     <MotionConfig reducedMotion="user">
-      <main>
+      <main className="overflow-hidden">
         <Hero />
         <Quiz />
-        <Budget />
         <Portfolio />
         <Process />
+        <Budget />
         <Packages />
         <Testimonials />
         <Contact />
