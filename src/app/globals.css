@@ -271,3 +271,70 @@
     background:linear-gradient(115deg,rgba(255,255,255,.32),transparent 48%,rgba(216,163,43,.07));
   }
 }
+
+/* MOBILE HERO COMPOSITION V2 */
+@media(max-width:650px){
+  .campaign-hero{
+    min-height:auto !important;
+    padding:30px 18px 42px !important;
+    background:#101619;
+  }
+  .hero-topline{
+    margin-bottom:34px !important;
+    color:#c7c9c4;
+  }
+  .hero-title-wrap{
+    margin-bottom:26px !important;
+  }
+  .campaign-hero h1{
+    font-size:clamp(4.7rem,20vw,6.8rem) !important;
+    line-height:.69 !important;
+    letter-spacing:-.085em !important;
+  }
+  .hero-photo{
+    width:100% !important;
+    aspect-ratio:4 / 3 !important;
+    height:auto !important;
+    margin-bottom:24px !important;
+  }
+  .hero-photo img{
+    object-position:center center !important;
+  }
+  .hero-copy{
+    padding:0 !important;
+  }
+  .hero-copy>p{
+    max-width:31ch !important;
+    font-size:14px !important;
+    line-height:1.65 !important;
+  }
+  .hero-actions{
+    grid-template-columns:1fr 1fr !important;
+    gap:10px !important;
+    margin-top:22px !important;
+  }
+  .hero-actions .button{
+    width:100% !important;
+    min-height:48px !important;
+    font-size:9px !important;
+    padding:13px 10px !important;
+  }
+  .hero-bottom{
+    margin-top:30px !important;
+  }
+  .hero-photo-caption{
+    font-size:7px !important;
+  }
+  .concierge-trigger{
+    right:14px !important;
+    bottom:76px !important;
+    padding:10px 13px !important;
+    font-size:8px !important;
+  }
+  .floating-wa{
+    right:14px !important;
+    bottom:14px !important;
+    padding:11px 16px !important;
+    font-size:9px !important;
+  }
+}
