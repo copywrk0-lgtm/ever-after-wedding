@@ -1,18 +1,67 @@
 'use client'
+
 import Link from 'next/link'
-import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/Reveal'
 import { SiteHeader } from '@/components/SiteHeader'
 import { Chatbot } from '@/components/ui/Chatbot'
-const stories=[{slug:'nikki-ravi',names:'Nikki & Ravi',place:'Bahrain',venue:'Sofitel Bahrain Zallaq',image:'/images/0006-2be554e6.webp'},{slug:'yugandhara-ninad',names:'Yugandhara & Ninad',place:'Mumbai',venue:'Mumbai, India',image:'/images/0002-d2a5b732.webp'},{slug:'gitika-anish',names:'Gitika & Anish',place:'Udaipur',venue:'Radisson Blu Udaipur Palace',image:'/images/0007-227c860a.webp'}]
-const images=['/images/0003-0d9743ea.jpg','/images/0005-92ee3c21.webp','/images/0004-2f85ac08.webp','/images/0001-56583b34.webp']
-export default function Home(){const [hover,setHover]=useState(0);return <div className="site"><SiteHeader/><main>
-<section className="hero-new"><div className="hero-grain"/><div className="hero-meta"><span>MUMBAI · BAHRAIN · WORLDWIDE</span><span>WEDDING PLANNING + DESIGN</span></div><div className="hero-watermark">EVER<br/><i>AFTER</i></div><div className="hero-yuga"><motion.img initial={{opacity:0,y:80,scale:1.04}} animate={{opacity:1,y:0,scale:1}} transition={{duration:1.15,ease:[.16,1,.3,1]}} src="/images/yuga-cutout.png" alt="Yuga, founder of Ever After Weddings, seated" width={604} height={1244}/></div><div className="hero-copy"><Reveal delay={.2}><p className="eyebrow light">THE BEAUTIFUL PART ISN'T THE PLAN.</p><h1>It&apos;s how<br/><em>it feels.</em></h1><p className="hero-sub">Thoughtful wedding planning and design for people who care about the details — and want to be fully present for the day.</p><div className="hero-actions"><Link className="pill gold" href="/plan">Start your story ↗</Link><Link className="pill light-pill" href="/celebrations">See the work ↓</Link></div></Reveal></div><div className="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div></section>
-<section className="statement"><Reveal><div className="statement-top"><span className="eyebrow">01 — THE BELIEF</span><span className="side-note">For the wildly personal.</span></div><h2>A wedding should feel like <em>you</em> — not like a wedding template.</h2><div className="statement-bottom"><p>We take the pressure off the planning and put the thought into the experience. From the first conversation to the last dance, every decision has a reason to be there.</p><Link href="/approach">How we work ↗</Link></div></Reveal></section>
-<section className="image-ribbon"><div className="ribbon-track">{[...images,...images].map((src,i)=><div className="ribbon-img" key={i}><img src={src} alt="Ever After Weddings celebration" loading="lazy"/></div>)}</div></section>
-<section className="stories-new"><Reveal><div className="section-head"><div><p className="eyebrow">02 — CELEBRATIONS</p><h2>Stories worth<br/><em>remembering.</em></h2></div><Link href="/celebrations" className="text-link">View all stories ↗</Link></div><div className="story-stage"><div className="story-list">{stories.map((s,i)=><Link href={'/celebrations/'+s.slug} className={'story-row '+(hover===i?'active':'')} onMouseEnter={()=>setHover(i)} key={s.slug}><span className="story-num">0{i+1}</span><span><b>{s.names}</b><small>{s.place} · {s.venue}</small></span><span>↗</span></Link>)}</div><motion.div className="story-image" key={stories[hover].image} initial={{opacity:0,scale:1.04}} animate={{opacity:1,scale:1}} transition={{duration:.55}}><img src={stories[hover].image} alt={stories[hover].names+' wedding celebration'}/><span>{stories[hover].venue}</span></motion.div></div></Reveal></section>
-<section className="experience"><Reveal><div className="experience-copy"><p className="eyebrow light">03 — THE EXPERIENCE</p><h2>You remember<br/><em>the feeling.</em></h2><p>We remember everything else.</p></div><div className="experience-cards">{['The first idea','The tiny details','The calm before','The last dance'].map((t,i)=><motion.div whileHover={{y:-10}} className="exp-card" key={t}><span>0{i+1}</span><h3>{t}</h3><p>{['A conversation that turns a thought into a direction.','Menus, music, florals, light — nothing is accidental.','A team that makes a complicated day feel remarkably easy.','The room empties. You realise it was exactly right.'][i]}</p></motion.div>)}</div></Reveal></section>
-<section className="editorial"><Reveal><div className="editorial-kicker"><span className="eyebrow">04 — MEET THE WOMAN BEHIND IT</span><span>YUGA · EVER AFTER INDIA</span></div><div className="editorial-grid"><div className="editorial-photo"><img src="/images/yuga-cutout.png" alt="Yuga, founder of Ever After Weddings" loading="lazy"/></div><div className="editorial-copy"><p className="eyebrow">A calm in the chaos.</p><h2>Meet <em>Yuga.</em></h2><p>Not just a wedding planner, but the person looking three steps ahead while you are busy living the moment. Her instinct is simple: understand the people first, then design the celebration around them.</p><Link href="/approach" className="pill dark-pill">Meet Ever After ↗</Link></div></div></Reveal></section>
-<section className="final-cta"><Reveal><p className="eyebrow light">05 — YOUR TURN</p><h2>Let&apos;s make it<br/><em>feel like yours.</em></h2><p>Tell us the date, the people, the place — or just the feeling.</p><Link className="pill gold" href="/plan">Plan with us ↗</Link></Reveal></section>
-</main><footer className="site-foot"><div><span className="brand-mark">E<span>∞</span>A</span><p>Ever After Weddings<br/>Mumbai · Bahrain · Worldwide</p></div><div><Link href="/celebrations">Celebrations</Link><Link href="/approach">Approach</Link><Link href="/plan">Enquire</Link></div><div><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a><a href="tel:+919167411088">+91 91674 11088</a></div><small>© 2026 Ever After Weddings · Concept by Copywrk</small></footer><a className="wa-new" href="https://wa.me/919167411088?text=Hi%20Yuga%2C%20I%E2%80%99d%20like%20to%20discuss%20our%20wedding." target="_blank" rel="noopener">WhatsApp ↗</a><Chatbot/></div>}
+
+const celebrations = [
+  { slug:'nikki-ravi', names:'Nikki & Ravi', place:'Bahrain', image:'/images/0006-2be554e6.webp', alt:'Nikki and Ravi wedding celebration in Bahrain' },
+  { slug:'yugandhara-ninad', names:'Yugandhara & Ninad', place:'Mumbai', image:'/images/0002-d2a5b732.webp', alt:'Yugandhara and Ninad wedding celebration in Mumbai, India' },
+  { slug:'gitika-anish', names:'Gitika & Anish', place:'Udaipur', image:'/images/0007-227c860a.webp', alt:'Sangeet stage at Gitika and Anish’s wedding in Udaipur' },
+]
+const gallery = [
+  ['/images/0003-0d9743ea.jpg','Wedding ceremony details'],
+  ['/images/0005-92ee3c21.webp','Floral wedding celebration'],
+  ['/images/0004-2f85ac08.webp','Indian wedding couple'],
+  ['/images/0001-56583b34.webp','Elegant wedding setting'],
+]
+
+export default function Home(){
+ return <div className="home">
+  <SiteHeader/>
+  <main>
+   <section className="campaign-hero">
+    <div className="hero-topline"><span>MUMBAI · BAHRAIN · WORLDWIDE</span><span>WEDDING PLANNING + DESIGN</span></div>
+    <div className="hero-title-wrap"><Reveal y={45}><p className="eyebrow light">THE BEAUTIFUL PART ISN'T THE PLAN.</p><h1>EVER<br/><i>AFTER</i></h1></Reveal></div>
+    <motion.div className="hero-photo" initial={{opacity:0,y:80,scale:1.06}} animate={{opacity:1,y:0,scale:1}} transition={{duration:1.2,ease:[.16,1,.3,1]}}>
+      <Image src="/images/0001-779fed9f.webp" alt="Ever After wedding celebration" fill priority sizes="(max-width:900px) 90vw,52vw"/>
+      <div className="hero-photo-caption"><span>01 / CELEBRATION</span><span>FEELING FIRST</span></div>
+    </motion.div>
+    <Reveal delay={.3} y={24} className="hero-copy"><p>Thoughtful wedding planning and design for people who care about the details — and want to be fully present for the day.</p><div className="hero-actions"><Link href="/plan" className="button button-gold">Start your story ↗</Link><Link href="/celebrations" className="button button-outline">See the work ↓</Link></div></Reveal>
+    <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span className="scroll-line"/></div>
+   </section>
+
+   <section className="intro section-light"><Reveal>
+    <div className="intro-label"><span>01 — THE IDEA</span><span>FOR PEOPLE WHO NOTICE EVERYTHING</span></div>
+    <div className="intro-grid"><h2>Not just a wedding.<br/><i>A day that feels like yours.</i></h2><div className="intro-text"><p>There is a difference between a beautiful wedding and a wedding that could only belong to you.</p><p>We build the second kind — with thoughtful planning, strong creative direction and a calm team behind the scenes.</p><Link href="/approach" className="under-link">Our approach ↗</Link></div></div>
+   </Reveal></section>
+
+   <section className="image-break"><motion.div className="break-image" initial={{clipPath:'inset(12% 0 12% 0)'}} whileInView={{clipPath:'inset(0% 0 0% 0)'}} viewport={{once:true,amount:.2}} transition={{duration:1.1,ease:[.16,1,.3,1]}}><Image src="/images/0005-c1516baf.webp" alt="Floral details from an Ever After wedding" fill sizes="100vw" loading="lazy"/></motion.div><div className="break-word">FEEL<br/><i>MORE.</i></div></section>
+
+   <section className="marquee" aria-hidden="true"><div className="marquee-track">EVER AFTER · WEDDING PLANNING · DESIGN · DESTINATION CELEBRATIONS · MUMBAI · BAHRAIN · WORLDWIDE · EVER AFTER · WEDDING PLANNING · DESIGN · DESTINATION CELEBRATIONS · MUMBAI · BAHRAIN · WORLDWIDE ·</div></section>
+
+   <section className="celebrations section-light"><Reveal>
+    <div className="section-heading"><div><p className="eyebrow">02 — CELEBRATIONS</p><h2>Beautiful days.<br/><i>Real stories.</i></h2></div><Link href="/celebrations" className="under-link">View all celebrations ↗</Link></div>
+   </Reveal>
+   <div className="celebration-grid">{celebrations.map((item,index)=><Reveal key={item.slug} delay={index*.08} y={45}><Link href={'/celebrations/'+item.slug} className={'celebration-card card-'+(index+1)}><div className="celebration-image"><Image src={item.image} alt={item.alt} fill sizes="(max-width:900px) 92vw,32vw" loading="lazy"/></div><div className="celebration-meta"><span>0{index+1}</span><div><strong>{item.names}</strong><small>{item.place}</small></div><span>↗</span></div></Link></Reveal>)}</div>
+   </section>
+
+   <section className="process section-dark"><Reveal><div className="process-head"><div><p className="eyebrow light">03 — THE WAY WE WORK</p><h2>Calm in the<br/><i>chaos.</i></h2></div><p>Good planning should make the day feel lighter, not heavier.</p></div></Reveal>
+    <div className="process-list">{[['01','Listen closely','We begin with your people, priorities, traditions and the feeling you want the celebration to hold.'],['02','Shape the vision','Creative direction, venues, vendors, styling and guest experience come together as one point of view.'],['03','Build the machine','Timelines, production, logistics and every moving part are handled quietly behind the scenes.'],['04','Let you live it','On the day, you get to be present. We are already three steps ahead.']].map(([number,title,body])=><motion.article key={number} className="process-row" whileHover={{x:12}}><span>{number}</span><div><h3>{title}</h3><p>{body}</p></div><span className="process-arrow">↗</span></motion.article>)}</div>
+   </section>
+
+   <section className="gallery section-light"><Reveal><div className="section-heading"><div><p className="eyebrow">04 — THE DETAILS</p><h2>Because the little things<br/><i>are never little.</i></h2></div></div></Reveal><div className="gallery-grid">{gallery.map(([src,alt],i)=><Reveal key={src} delay={i*.05} y={35}><div className={'gallery-item gallery-'+(i+1)}><Image src={src} alt={alt} fill sizes="(max-width:900px) 92vw,45vw" loading="lazy"/></div></Reveal>)}</div></section>
+
+   <section className="yuga section-light"><Reveal><div className="yuga-label"><span>05 — THE PERSON BEHIND IT</span><span>YUGA · EVER AFTER INDIA</span></div><div className="yuga-grid"><div className="yuga-photo"><Image src="/images/yuga-cutout.png" alt="Yuga, founder of Ever After Weddings" width={604} height={1244} loading="lazy"/></div><div className="yuga-copy"><p className="eyebrow">A calm in the chaos.</p><h2>Meet <i>Yuga.</i></h2><p>Not just the person planning the wedding — the person thinking about what you will remember years from now. Her instinct is simple: understand the people first, then design the celebration around them.</p><Link href="/approach" className="button button-dark">Meet Ever After ↗</Link></div></div></Reveal></section>
+
+   <section className="final-cta"><Reveal><p className="eyebrow light">06 — YOUR TURN</p><h2>Let's make it<br/><i>feel like yours.</i></h2><p>Tell us the date, the people, the place — or just the feeling.</p><Link href="/plan" className="button button-gold">Plan with us ↗</Link></Reveal></section>
+  </main>
+
+  <footer className="site-foot"><div><span className="brand-mark">E<span>∞</span>A</span><p>Ever After Weddings<br/>Mumbai · Bahrain · Worldwide</p></div><div><p className="eyebrow light">Explore</p><Link href="/celebrations">Celebrations</Link><Link href="/approach">Approach</Link><Link href="/feel">Your feeling</Link></div><div><p className="eyebrow light">Start a conversation</p><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a><a href="tel:+919167411088">+91 91674 11088</a><a href="https://wa.me/919167411088" target="_blank" rel="noopener">WhatsApp ↗</a></div><small>© 2026 Ever After Weddings · Mumbai / Bahrain</small></footer>
+  <a className="floating-wa" href="https://wa.me/919167411088?text=Hi%20Yuga%2C%20I%E2%80%99d%20like%20to%20discuss%20our%20wedding." target="_blank" rel="noopener" aria-label="Chat with Ever After Weddings on WhatsApp">WhatsApp ↗</a>
+  <Chatbot/>
+ </div>
+}
