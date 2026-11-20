@@ -26,8 +26,8 @@ export function Chatbot(){
  function submit(e:FormEvent){e.preventDefault();send()}
  const wa='https://wa.me/919167411088?text='+encodeURIComponent('Hi Yuga, I found Ever After through the website and would love to discuss my wedding.')
  return <>
-  <button className="concierge-trigger" onClick={()=>setOpen(v=>!v)} aria-label="Open EverAfter Concierge" aria-expanded={open}>
-   <span className="concierge-symbol">E∞A</span><span>{open?'Close':'Concierge'}</span>
+  <button className="concierge-trigger" onClick={()=>setOpen(v=>!v)} aria-label={open?'Close EverAfter Concierge':'Open EverAfter Concierge'} aria-expanded={open}>
+   <span className="concierge-symbol" aria-hidden="true">E<span>∞</span>A</span>
   </button>
   {open&&<section className="concierge-panel" aria-label="EverAfter Concierge">
    <div className="concierge-head"><div><div className="concierge-title">EverAfter Concierge</div><div className="concierge-kicker">A QUIET PLACE TO START</div></div><button onClick={()=>setOpen(false)} aria-label="Close concierge">×</button></div>
