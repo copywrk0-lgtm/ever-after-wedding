@@ -6,6 +6,8 @@ export type QuizQuestion = {
   options: readonly QuizAnswerOption[]
 }
 
+export type QuizAnswers = Record<string, string>
+
 export type SiteContent = {
   brand: {
     name: string
