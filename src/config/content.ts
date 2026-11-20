@@ -8,7 +8,7 @@ export const CONTENT = {
     {id:'events',question:'Which moments matter most?', options:[['Wedding only','One unforgettable day'],['2–3 events','A considered wedding weekend'],['Full festivities','Every ritual, beautifully planned'],['Destination weekend','The whole escape']]},
     {id:'budget',question:'What feels comfortable for the celebration?', options:[['₹15–30L','Beautifully considered'],['₹30–60L','Elevated & expansive'],['₹60L–1Cr','High-touch luxury'],['₹1Cr+','Uncompromisingly bespoke']]},
   ]},
-  budget:{ base: {1:1500000,2:2800000,3:4500000}, perGuest: {1:8500,2:12000,3:18000}, perEvent: {1:150000,2:250000,3:450000}, cityMultiplier:{tier1:1,tier2:.82,tier3:.68} }, note:'Indicative planning + production range only. Final pricing depends on venue, guest profile, design scope, travel and vendor selections.' },
+  budget:{ base: {1:1500000,2:2800000,3:4500000}, perGuest: {1:8500,2:12000,3:18000}, perEvent: {1:150000,2:250000,3:450000}, cityMultiplier:{tier1:1,tier2:.82,tier3:.68}, note:'Indicative planning + production range only. Final pricing depends on venue, guest profile, design scope, travel and vendor selections.' },
   portfolio:[
     {title:'The Palace Edit',type:'Royal',image:'https://raw.githubusercontent.com/saavi122/EvenAfter-A-Wedding-Planner-/main/frontend/src/assets/luxury_wedding_setup.png'},
     {title:'Marigold in Jaipur',type:'Destination',image:'https://raw.githubusercontent.com/saavi122/EvenAfter-A-Wedding-Planner-/main/frontend/src/assets/hero.png'},
