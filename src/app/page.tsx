@@ -66,4 +66,3 @@ export default function Home(){
  </div>
 }
 
-.hero-placeholder{background:#252b2d;border:1px solid rgba(216,163,43,.28);display:flex;align-items:center;justify-content:center}.placeholder-inner{text-align:center;color:#8e9698;display:grid;gap:10px;place-items:center}.placeholder-inner span{font:500 9px var(--mono);letter-spacing:.25em;color:#d8a32b}.placeholder-inner strong{font:400 clamp(3rem,7vw,6.5rem)/.78 var(--serif);letter-spacing:-.04em;color:#c7c9c4}.placeholder-inner small{font:500 8px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#6f7779}
