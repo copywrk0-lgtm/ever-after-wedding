@@ -449,3 +449,39 @@
 .hero-photo img{
   filter:grayscale(1) contrast(1.05) !important;
 }
+
+
+/* Concierge trigger — logo only */
+.concierge-trigger{
+  width:58px;
+  height:58px;
+  padding:0;
+  border-radius:50%;
+  justify-content:center;
+  gap:0;
+  background:#f3f0e8;
+  border:1px solid rgba(16,22,26,.28);
+  box-shadow:0 14px 45px rgba(0,0,0,.18);
+}
+.concierge-trigger:hover{
+  background:#d8a32b;
+  transform:translateY(-3px) scale(1.03);
+}
+.concierge-symbol{
+  font-family:var(--serif);
+  font-size:24px;
+  line-height:1;
+  letter-spacing:-.12em;
+  color:#101619;
+}
+.concierge-symbol span{color:var(--gold2)}
+@media(max-width:650px){
+  .concierge-trigger{
+    width:54px;
+    height:54px;
+    right:14px !important;
+    bottom:76px !important;
+    padding:0 !important;
+  }
+  .concierge-symbol{font-size:22px}
+}
