@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     siteName: 'Ever After Weddings',
     title: 'Ever After Weddings — Thoughtful Wedding Planning & Design',
     description: 'Thoughtful wedding planning and design for celebrations in Mumbai, Bahrain and beyond.',
-    images: [{ url: '/images/0001-779fed9f.webp', width: 1200, height: 1600, alt: 'Ever After wedding celebration' }],
+    images: [{ url: '/images/0001-56583b34.webp', width: 1200, height: 1600, alt: 'Ever After wedding celebration' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Ever After Weddings', description: 'Thoughtful wedding planning and design for celebrations in Mumbai, Bahrain and beyond.', images: ['/images/0001-779fed9f.webp'] },
+  twitter: { card: 'summary_large_image', title: 'Ever After Weddings', description: 'Thoughtful wedding planning and design for celebrations in Mumbai, Bahrain and beyond.', images: ['/images/0001-56583b34.webp'] },
   icons: { icon: '/favicon.svg' },
 }
 
