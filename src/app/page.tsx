@@ -26,9 +26,9 @@ export default function Home(){
    <section className="campaign-hero">
     <div className="hero-topline"><span>MUMBAI · BAHRAIN · WORLDWIDE</span><span>WEDDING PLANNING + DESIGN</span></div>
     <div className="hero-title-wrap"><Reveal y={45}><p className="eyebrow light">THE BEAUTIFUL PART ISN'T THE PLAN.</p><h1>EVER<br/><i>AFTER</i></h1></Reveal></div>
-    <motion.div className="hero-photo hero-placeholder" initial={{opacity:0,y:80,scale:1.06}} animate={{opacity:1,y:0,scale:1}} transition={{duration:1.2,ease:[.16,1,.3,1]}} aria-label="Photo placeholder">
-      <div className="placeholder-inner"><span>PHOTO</span><strong>YOUR STORY<br/>GOES HERE</strong><small>Ever After Weddings</small></div>
-      <div className="hero-photo-caption"><span>01 / YOUR IMAGE</span><span>FEELING FIRST</span></div>
+    <motion.div className="hero-photo" initial={{opacity:0,y:80,scale:1.06}} animate={{opacity:1,y:0,scale:1}} transition={{duration:1.2,ease:[.16,1,.3,1]}}>
+      <Image src="/images/yuga-hero.jpg" alt="Yuga, founder of Ever After Weddings" fill priority sizes="(max-width: 650px) 84vw, 48vw" className="object-cover object-center" />
+      <div className="hero-photo-caption"><span>01 / YUGA</span><span>FEELING FIRST</span></div>
     </motion.div>
     <Reveal delay={.3} y={24} className="hero-copy"><p>Thoughtful wedding planning and design for people who care about the details — and want to be fully present for the day.</p><div className="hero-actions"><Link href="/plan" className="button button-gold">Start your story ↗</Link><Link href="/celebrations" className="button button-outline">See the work ↓</Link></div></Reveal>
     <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span className="scroll-line"/></div>
