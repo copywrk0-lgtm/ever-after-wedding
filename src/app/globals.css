@@ -338,3 +338,114 @@
     font-size:9px !important;
   }
 }
+
+
+/* FINAL HERO COMPOSITION — desktop keeps the editorial split, mobile stays stacked */
+.campaign-hero{
+  min-height:clamp(760px,100svh,980px);
+  padding:0 5vw 40px;
+}
+.hero-topline{
+  top:108px;
+  z-index:6;
+}
+.hero-title-wrap{
+  left:7vw;
+  top:25%;
+  width:min(52vw,720px);
+  z-index:2;
+}
+.campaign-hero h1{
+  font-size:clamp(8rem,14.5vw,15rem);
+  line-height:.66;
+  letter-spacing:-.095em;
+}
+.hero-photo{
+  right:7vw;
+  top:19%;
+  width:min(45vw,680px);
+  height:min(64vh,650px);
+  z-index:3;
+}
+.hero-photo img{
+  object-fit:cover !important;
+  object-position:center 48% !important;
+  filter:grayscale(1) contrast(1.05) !important;
+}
+.hero-photo:after{
+  background:linear-gradient(180deg,transparent 58%,rgba(16,22,25,.58));
+}
+.hero-copy{
+  left:7vw;
+  bottom:10.5%;
+  max-width:405px;
+  z-index:5;
+}
+.hero-copy>p{
+  font-size:16px;
+  line-height:1.55;
+  max-width:34ch;
+}
+.hero-actions{margin-top:22px}
+.hero-bottom{
+  bottom:25px;
+  z-index:6;
+}
+
+/* A little more breathing room at common laptop widths */
+@media (min-width:651px) and (max-width:1200px){
+  .hero-title-wrap{top:27%;width:48vw}
+  .campaign-hero h1{font-size:clamp(7rem,14vw,11rem)}
+  .hero-photo{right:5vw;width:43vw;height:59vh;top:21%}
+  .hero-copy{bottom:10%;max-width:360px}
+}
+
+/* Mobile: no absolute collisions — content reads top-to-bottom */
+@media(max-width:650px){
+  .campaign-hero{
+    min-height:auto !important;
+    padding:30px 18px 42px !important;
+  }
+  .hero-topline{
+    position:static !important;
+    margin-bottom:34px !important;
+  }
+  .hero-title-wrap{
+    position:static !important;
+    width:auto !important;
+    margin-bottom:28px !important;
+  }
+  .campaign-hero h1{
+    font-size:clamp(4.7rem,20vw,6.8rem) !important;
+    line-height:.69 !important;
+  }
+  .hero-photo{
+    position:relative !important;
+    top:auto !important;
+    right:auto !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:4/3 !important;
+    margin:0 0 24px !important;
+  }
+  .hero-copy{
+    position:static !important;
+    max-width:none !important;
+    padding:0 !important;
+  }
+  .hero-copy>p{max-width:31ch !important;font-size:14px !important}
+  .hero-actions{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px !important;
+  }
+  .hero-bottom{
+    position:static !important;
+    margin-top:30px !important;
+  }
+}
+
+/* Keep the monochrome hero image consistent on every viewport. */
+.hero-photo img{
+  filter:grayscale(1) contrast(1.05) !important;
+}
