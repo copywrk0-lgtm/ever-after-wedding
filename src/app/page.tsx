@@ -140,7 +140,7 @@ export default function Home() {
           <div className="yuga-portrait-wrap">
             <Reveal delay={.18} y={70}>
               <div className="yuga-portrait">
-                <img src="/images/yuga-hero.jpg" alt="Yuga, founder of Ever After Weddings, seated and smiling" width={604} height={1244} fetchPriority="high" />
+                <img src="/images/yuga-cutout.png" alt="Yuga, founder of Ever After Weddings, seated and smiling" width={604} height={1244} fetchPriority="high" />
               </div>
             </Reveal>
           </div>
