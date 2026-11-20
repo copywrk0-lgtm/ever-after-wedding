@@ -217,3 +217,57 @@
 .hero-photo img{
   filter:none;
 }
+
+/* --- EVER AFTER GLASS HEADER POLISH --- */
+.site-header{
+  background:
+    linear-gradient(90deg,
+      rgba(243,240,232,.78) 0%,
+      rgba(255,255,255,.56) 48%,
+      rgba(243,240,232,.72) 100%);
+  backdrop-filter:blur(22px) saturate(135%);
+  -webkit-backdrop-filter:blur(22px) saturate(135%);
+  border-bottom:1px solid rgba(16,22,26,.12);
+  box-shadow:0 8px 30px rgba(16,22,26,.055);
+}
+.site-header::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.28) 42%,transparent 66%);
+  opacity:.75;
+}
+.site-header::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(216,163,43,.0) 10%,rgba(216,163,43,.65) 50%,rgba(216,163,43,.0) 90%,transparent 100%);
+  opacity:.8;
+}
+.site-header > *{position:relative;z-index:1}
+.site-header .desktop-nav{
+  max-width:760px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.site-header .desktop-nav::-webkit-scrollbar{display:none}
+.site-header .desktop-nav a{white-space:nowrap}
+@media(max-width:650px){
+  .site-header{
+    background:
+      linear-gradient(135deg,
+        rgba(243,240,232,.88) 0%,
+        rgba(255,255,255,.66) 52%,
+        rgba(231,225,212,.78) 100%);
+    backdrop-filter:blur(24px) saturate(145%);
+    -webkit-backdrop-filter:blur(24px) saturate(145%);
+    box-shadow:0 10px 28px rgba(16,22,26,.09);
+  }
+  .site-header::before{
+    background:linear-gradient(115deg,rgba(255,255,255,.32),transparent 48%,rgba(216,163,43,.07));
+  }
+}
