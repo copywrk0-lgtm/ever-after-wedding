@@ -71,3 +71,149 @@
 .services-cta h2 em{color:var(--gold);font-style:italic}
 @media(max-width:900px){.service-row{grid-template-columns:45px 1fr;gap:18px}.service-image{grid-column:2;height:430px}.included-head{grid-template-columns:1fr;gap:35px}.included-grid{grid-template-columns:1fr 1fr}.included-grid div:nth-child(3n){border-right:1px solid var(--line)}.included-grid div:nth-child(2n){border-right:0}}
 @media(max-width:650px){.services-intro,.services-list,.included-section,.services-cta{padding-left:24px;padding-right:24px}.services-intro{padding-top:80px;padding-bottom:70px}.services-intro h2{font-size:18vw}.service-row{grid-template-columns:35px 1fr;padding:40px 0;gap:12px}.service-copy h3{font-size:13vw}.service-copy p{font-size:14px}.service-image{grid-column:1/-1;height:70svh;max-height:560px;margin-top:15px}.included-head h2{font-size:17vw}.included-grid{grid-template-columns:1fr;margin-top:50px}.included-grid div{border-right:0!important}.included-grid strong{font-size:23px}.services-cta h2{font-size:19vw}}
+
+
+/* MOBILE-FIRST HERO REFINEMENT — keeps the editorial identity but removes overlap */
+@media (max-width: 650px){
+  body{overflow-x:hidden}
+  .site-header{
+    height:68px;
+    padding:0 18px;
+    background:rgba(243,240,232,.97);
+  }
+  .site-header .brand-mark{font-size:28px}
+  .site-header .brand-name{font-size:9px}
+  .desktop-nav{display:none}
+  .menu-button{display:block}
+  .mobile-nav{top:68px;padding:12px 18px 22px;z-index:80}
+  .mobile-nav a{font-size:24px;padding:14px 0}
+
+  .campaign-hero{
+    min-height:0;
+    padding:34px 18px 34px;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto auto auto;
+    gap:0;
+    overflow:hidden;
+  }
+  .hero-topline{
+    position:static;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:18px;
+    margin:0 0 44px;
+    font-size:8px;
+    line-height:1.65;
+    letter-spacing:.13em;
+  }
+  .hero-topline span{max-width:48%}
+
+  .hero-title-wrap{
+    position:static;
+    z-index:auto;
+    margin:0 0 28px;
+  }
+  .campaign-hero .eyebrow.light{
+    font-size:8px;
+    letter-spacing:.16em;
+    margin-bottom:12px;
+  }
+  .campaign-hero h1{
+    font-size:clamp(5.3rem,23vw,8rem);
+    line-height:.67;
+    letter-spacing:-.095em;
+    margin:0;
+  }
+  .campaign-hero h1 i{
+    display:block;
+    margin-left:-.02em;
+  }
+
+  .hero-photo{
+    position:relative;
+    top:auto;
+    right:auto;
+    z-index:1;
+    width:100%;
+    height:auto;
+    aspect-ratio:4 / 5;
+    min-height:0;
+    margin:0 0 22px;
+    background:#202729;
+    overflow:hidden;
+  }
+  .hero-photo img{
+    object-fit:cover !important;
+    object-position:center 45% !important;
+    filter:none !important;
+    opacity:1;
+  }
+  .hero-photo:after{
+    background:linear-gradient(180deg,transparent 58%,rgba(16,22,25,.5));
+  }
+  .hero-photo-caption{
+    bottom:13px;
+    left:14px;
+    right:14px;
+    font-size:8px;
+  }
+
+  .hero-copy{
+    position:static;
+    z-index:auto;
+    max-width:none;
+    margin:0;
+    padding:0 2px;
+  }
+  .hero-copy>p{
+    font-size:15px;
+    line-height:1.6;
+    color:#c8ccca;
+    max-width:34ch;
+    margin:0;
+  }
+  .hero-actions{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+  .hero-actions .button{
+    width:100%;
+    min-height:50px;
+    padding:14px 16px;
+  }
+  .hero-bottom{
+    position:static;
+    margin-top:32px;
+    display:flex;
+    font-size:8px;
+  }
+  .scroll-line{flex:1;width:auto}
+
+  /* Keep the floating controls clear of each other and the browser safe area. */
+  .concierge-trigger{
+    right:14px;
+    bottom:86px;
+    padding:11px 14px;
+    max-width:calc(100vw - 28px);
+  }
+  .concierge-panel{
+    right:10px;
+    bottom:145px;
+    width:calc(100vw - 20px);
+    max-height:calc(100svh - 170px);
+  }
+  .floating-wa{
+    right:14px;
+    bottom:16px;
+    padding:12px 17px;
+  }
+}
+
+/* Improve the image presentation on desktop too — real colour photography, no artificial grayscale. */
+.hero-photo img{
+  filter:none;
+}
