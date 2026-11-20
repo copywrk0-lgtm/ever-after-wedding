@@ -55,8 +55,6 @@ export default function Home(){
 
    <section className="gallery section-light"><Reveal><div className="section-heading"><div><p className="eyebrow">04 — THE DETAILS</p><h2>Because the little things<br/><i>are never little.</i></h2></div></div></Reveal><div className="gallery-grid">{gallery.map(([src,alt],i)=><Reveal key={src} delay={i*.05} y={35}><div className={'gallery-item gallery-'+(i+1)}><Image src={src} alt={alt} fill sizes="(max-width:900px) 92vw,45vw" loading="lazy"/></div></Reveal>)}</div></section>
 
-   <section className="yuga section-light"><Reveal><div className="yuga-label"><span>05 — THE PERSON BEHIND IT</span><span>YUGA · EVER AFTER INDIA</span></div><div className="yuga-grid"><div className="yuga-photo"><Image src="/images/yuga-cutout.png" alt="Yuga, founder of Ever After Weddings" width={604} height={1244} loading="lazy" quality={100} unoptimized /></div><div className="yuga-copy"><p className="eyebrow">A calm in the chaos.</p><h2>Meet <i>Yuga.</i></h2><p>Not just the person planning the wedding — the person thinking about what you will remember years from now. Her instinct is simple: understand the people first, then design the celebration around them.</p><Link href="/approach" className="button button-dark">Meet Ever After ↗</Link></div></div></Reveal></section>
-
    <section className="final-cta"><Reveal><p className="eyebrow light">06 — YOUR TURN</p><h2>Let's make it<br/><i>feel like yours.</i></h2><p>Tell us the date, the people, the place — or just the feeling.</p><Link href="/plan" className="button button-gold">Plan with us ↗</Link></Reveal></section>
   </main>
 
