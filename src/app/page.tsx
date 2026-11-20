@@ -9,7 +9,7 @@ import { Chatbot } from '@/components/ui/Chatbot'
 
 const celebrations = [
   { slug:'nikki-ravi', names:'Nikki & Ravi', place:'Bahrain', image:'/images/0006-2be554e6.webp', alt:'Nikki and Ravi wedding celebration in Bahrain' },
-  { slug:'yugandhara-ninad', names:'Yugandhara & Ninad', place:'Mumbai', image:'/images/0002-d2a5b732.webp', alt:'Yugandhara and Ninad wedding celebration in Mumbai, India' },
+  { slug:'yugandhara-ninad', names:'Yugandhara & Ninad', place:'Mumbai', image:'/images/0009-bb209eeb.jpg', alt:'Yugandhara and Ninad wedding celebration in Mumbai, India' },
   { slug:'gitika-anish', names:'Gitika & Anish', place:'Udaipur', image:'/images/0007-227c860a.webp', alt:'Sangeet stage at Gitika and Anish’s wedding in Udaipur' },
 ]
 const gallery = [
