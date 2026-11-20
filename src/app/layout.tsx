@@ -1,33 +1,23 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  variable: '--font-cormorant',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
+const siteUrl = 'https://everafterweddings-five.vercel.app'
 
 export const metadata: Metadata = {
-  title: 'EverAfter — Premium Indian Wedding Planning',
-  description: 'Bespoke Indian wedding planning, design and production.',
+  metadataBase: new URL(siteUrl),
+  title: { default: 'Ever After Weddings — More Than A Wedding', template: '%s — Ever After Weddings' },
+  description: 'Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.',
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'EverAfter — Premium Indian Wedding Planning',
-    description: 'We plan it. You live it.',
-    type: 'website',
+    type: 'website', url: siteUrl, siteName: 'Ever After Weddings',
+    title: 'Ever After Weddings — More Than A Wedding',
+    description: 'Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.',
+    images: [{ url: '/images/0002-d2a5b732.webp', width: 1200, height: 1500, alt: 'Ever After Weddings celebration' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Ever After Weddings — More Than A Wedding', description: 'Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.', images: ['/images/0002-d2a5b732.webp'] },
+  icons: { icon: '/favicon.svg' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body className={`${cormorant.variable} ${inter.variable}`}>{children}</body>
-    </html>
-  )
+  return <html lang="en"><body>{children}</body></html>
 }

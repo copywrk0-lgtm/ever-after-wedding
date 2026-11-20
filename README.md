@@ -1,20 +1,32 @@
-# Premium Wedding Planner
+# Ever After Weddings
 
-Next.js App Router + TypeScript + Tailwind CSS + Framer Motion.
+Vercel-ready Next.js 16 wedding planner site.
 
-## Run on Windows
+## Run locally
 
-```powershell
+```bash
 npm install
 npm run dev
 ```
-Open http://localhost:3000.
 
-## Content
-Edit `src/config/content.ts` for brand name, copy, pricing constants, portfolio images, packages and testimonials.
+## Production build
 
-## Images
-The starter uses the existing public GitHub repository's `hero.png` and `luxury_wedding_setup.png` via raw GitHub URLs so they are easy to swap. For a production/commercial launch, confirm you have permission to use those photographs and preferably self-host licensed assets in `/public/images`.
+```bash
+npm run build
+npm start
+```
 
-## Deploy
-Push to GitHub and import into Vercel. No server database is required for the current demo. The inquiry API currently logs submissions and has a TODO for email/Google Sheets/CRM integration.
+## Deploy to Vercel
+
+Import this folder/repository into Vercel. Framework preset: **Next.js**. Build command: `npm run build`. Output directory: **leave blank/default** (Next.js manages `.next`). No environment variables are required for the current static/WhatsApp flow.
+
+## Routes
+
+- `/` — main Ever After experience
+- `/celebrations` — celebration archive
+- `/celebrations/nikki-ravi` — story
+- `/celebrations/yugandhara-ninad` — story
+- `/celebrations/gitika-anish` — story
+- `/approach` — planning approach
+- `/feel` — interactive feeling quiz
+- `/plan` — enquiry / WhatsApp CTA

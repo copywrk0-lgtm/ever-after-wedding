@@ -1,3 +1,1 @@
-import {MessageCircle} from 'lucide-react'
-import {CONTENT} from '@/config/content'
-export function WhatsApp(){const url=`https://wa.me/${CONTENT.brand.phone.replace(/\D/g,'')}?text=${encodeURIComponent('Hi EverAfter! I found you through your website and would love to discuss planning my wedding.')}`;return <a aria-label="Chat on WhatsApp" href={url} target="_blank" rel="noreferrer" className="focus-ring fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#711f2d] text-ivory shadow-2xl transition hover:-translate-y-1"><MessageCircle size={21}/></a>}
+export function WhatsApp(){return <a aria-label="Chat on WhatsApp" href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="focus-ring fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-maroon text-2xl text-ivory shadow-xl transition hover:-translate-y-1 md:bottom-7 md:right-7">◔</a>}
