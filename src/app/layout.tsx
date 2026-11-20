@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-const siteUrl = 'https://everafterweddings-five.vercel.app'
+const siteUrl = 'https://ever-after-wedding-copywrk.vercel.app'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
