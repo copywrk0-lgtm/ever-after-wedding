@@ -26,9 +26,9 @@ export default function Home(){
    <section className="campaign-hero">
     <div className="hero-topline"><span>MUMBAI · BAHRAIN · WORLDWIDE</span><span>WEDDING PLANNING + DESIGN</span></div>
     <div className="hero-title-wrap"><Reveal y={45}><p className="eyebrow light">THE BEAUTIFUL PART ISN'T THE PLAN.</p><h1>EVER<br/><i>AFTER</i></h1></Reveal></div>
-    <motion.div className="hero-photo" initial={{opacity:0,y:80,scale:1.06}} animate={{opacity:1,y:0,scale:1}} transition={{duration:1.2,ease:[.16,1,.3,1]}}>
-      <Image src="/images/0001-779fed9f.webp" alt="Ever After wedding celebration" fill priority sizes="(max-width:900px) 90vw,52vw"/>
-      <div className="hero-photo-caption"><span>01 / CELEBRATION</span><span>FEELING FIRST</span></div>
+    <motion.div className="hero-photo hero-placeholder" initial={{opacity:0,y:80,scale:1.06}} animate={{opacity:1,y:0,scale:1}} transition={{duration:1.2,ease:[.16,1,.3,1]}} aria-label="Photo placeholder">
+      <div className="placeholder-inner"><span>PHOTO</span><strong>YOUR STORY<br/>GOES HERE</strong><small>Ever After Weddings</small></div>
+      <div className="hero-photo-caption"><span>01 / YOUR IMAGE</span><span>FEELING FIRST</span></div>
     </motion.div>
     <Reveal delay={.3} y={24} className="hero-copy"><p>Thoughtful wedding planning and design for people who care about the details — and want to be fully present for the day.</p><div className="hero-actions"><Link href="/plan" className="button button-gold">Start your story ↗</Link><Link href="/celebrations" className="button button-outline">See the work ↓</Link></div></Reveal>
     <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span className="scroll-line"/></div>
@@ -65,3 +65,5 @@ export default function Home(){
   <Chatbot/>
  </div>
 }
+
+.hero-placeholder{background:#252b2d;border:1px solid rgba(216,163,43,.28);display:flex;align-items:center;justify-content:center}.placeholder-inner{text-align:center;color:#8e9698;display:grid;gap:10px;place-items:center}.placeholder-inner span{font:500 9px var(--mono);letter-spacing:.25em;color:#d8a32b}.placeholder-inner strong{font:400 clamp(3rem,7vw,6.5rem)/.78 var(--serif);letter-spacing:-.04em;color:#c7c9c4}.placeholder-inner small{font:500 8px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#6f7779}
