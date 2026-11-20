@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from 'react'
 import { Chatbot } from '@/components/ui/Chatbot'
+import { Reveal } from '@/components/ui/Reveal'
 
 const WA = '919167411088'
 const OWNER = 'Yuga'
@@ -133,28 +134,12 @@ export default function Home() {
             </div>
 
             <div className="day">
-              <svg className="arch-svg" viewBox="-12 -12 384 492" role="img" aria-label="A sky over the sea that changes with the time of day">
-                <defs>
-                  <clipPath id="arch-clip"><path d="M0 480V180A180 180 0 0 1 360 180V480Z"/></clipPath>
-                  <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor={sky[0]}/><stop offset=".55" stopColor={sky[1]}/><stop offset="1" stopColor={sky[2]}/></linearGradient>
-                  <linearGradient id="g-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#294b5c"/><stop offset="1" stopColor="#07151f"/></linearGradient>
-                </defs>
-                <g clipPath="url(#arch-clip)">
-                  <rect width="360" height="480" fill="url(#g-sky)"/>
-                  {Array.from({length:34},(_,i)=><circle key={i} cx={(i*71)%360} cy={(i*37)%230+6} r=".7" fill="#fff" opacity={Math.max(0, Math.min(1,(time-19.3)/2))*.7}/>) }
-                  <circle cx={sunX} cy={sunY} r="64" fill="#ffd9a0" opacity={sunOn?.25:0}/>
-                  <circle cx={sunX} cy={sunY} r="26" fill="#ffd09a" opacity={sunOn?1:0}/>
-                  <circle cx={moonX} cy={moonY} r="40" fill="#f3efe0" opacity={moonOn?.16:0}/>
-                  <circle cx={moonX} cy={moonY} r="16" fill="#f3efe0" opacity={moonOn?1:0}/>
-                  <rect y="330" width="360" height="150" fill="url(#g-sea)"/>
-                  <ellipse cx={sunX} cy="352" rx="22" ry="5" fill="#ffd9a0" opacity={sunOn?.35:0}/>
-                  <ellipse cx={moonX} cy="352" rx="16" ry="4" fill="#f3efe0" opacity={moonOn?.35:0}/>
-                  <g stroke="#fff" strokeOpacity=".12" strokeWidth="1"><path d="M10 372h60M120 384h90M250 370h80M40 400h70M170 414h100M300 398h50M20 436h90M200 446h110"/></g>
-                  <g fill={sky[2]} opacity=".9"><rect x="116" y="322" width="128" height="8"/><rect x="122" y="286" width="5" height="36"/><rect x="152" y="286" width="5" height="36"/><rect x="203" y="286" width="5" height="36"/><rect x="233" y="286" width="5" height="36"/><path d="M112 286h136L180 256Z"/><path d="M150 262c8-18 52-18 60 0Z"/><rect x="178" y="236" width="4" height="22"/></g>
-                  <path d="M-4 120Q180 200 364 120" fill="none" stroke="#fff" strokeOpacity={.2+.2*Math.max(0,Math.min(1,(time-17.4)/1.6))}/>
-                </g>
-                <path className="arch-outline" d="M-8 480V180A188 188 0 0 1 368 180V480"/>
-              </svg>
+              <div className="hero-arch-photo" aria-label="A wedding celebration in Udaipur">
+                <img src="/images/0007-227c860a.webp" alt="Outdoor wedding ceremony and floral arch at a celebration in Udaipur" width={1200} height={1500} fetchPriority="high" />
+                <div className="hero-photo-wash" style={{ opacity: Math.max(0, Math.min(0.48, (time - 18.5) / 5 * 0.48)) }} />
+                <div className="hero-photo-time">{fmt(time)}</div>
+                <div className="hero-photo-caption">A sample day · Udaipur</div>
+              </div>
               <div className="scrub">
                 <div className="scrub-top"><span className="clock">{fmt(time)}</span><button className="play" type="button" onClick={()=>setPlaying(v=>!v)}>{playing?'Pause':'Play the day'}</button></div>
                 <input type="range" min="6" max="23.5" step=".25" value={time} onChange={e=>{setPlaying(false);setTime(Number(e.target.value))}} aria-label="Time of day on the wedding day"/>
@@ -166,25 +151,25 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="belief"><div className="wrap belief-grid"><p className="eyebrow">We believe</p><div><p className="big">The most memorable celebrations aren’t defined by how grand they are, but by how <em>seamlessly</em> they unfold.</p><p className="sub">Intuitive planning. Intentional design. A day beautifully lived.</p></div></div></section>
+        <section className="belief"><Reveal><div className="wrap belief-grid"><p className="eyebrow">We believe</p><div><p className="big">The most memorable celebrations aren’t defined by how grand they are, but by how <em>seamlessly</em> they unfold.</p><p className="sub">Intuitive planning. Intentional design. A day beautifully lived.</p></div></div></Reveal></section>
 
-        <section className="stories" id="celebrations"><div className="wrap"><div className="sec-head"><div><p className="eyebrow">Selected celebrations</p><h2>Stories we <em>hold close</em></h2></div><a className="btn ghost" href="https://everafterwedding.vercel.app/celebrations" target="_blank" rel="noopener">View all celebrations ↗</a></div>
-          <div className="story-grid"><div className="story-list">{stories.map((s,i)=><a key={s.names} className={`story ${story===i?'active':''}`} href="/celebrations" onMouseEnter={()=>setStory(i)} onFocus={()=>setStory(i)}><span className="thumb"><div className="art"><img src={s.image} alt={s.alt}/></div></span><span><span className="names">{s.names}</span><span className="where">{s.place} · {s.venue}</span></span><span className="go">↗</span></a>)}</div>
+        <section className="stories" id="celebrations"><Reveal><div className="wrap"><div className="sec-head"><div><p className="eyebrow">Selected celebrations</p><h2>Stories we <em>hold close</em></h2></div><a className="btn ghost" href="/celebrations">View all celebrations ↗</a></div>
+          <div className="story-grid"><div className="story-list">{stories.map((s,i)=><a key={s.names} className={`story ${story===i?'active':''}`} href={`/celebrations/${s.names === "Nikki & Ravi" ? "nikki-ravi" : s.names === "Yugandhara & Ninad" ? "yugandhara-ninad" : "gitika-anish"}`} onMouseEnter={()=>setStory(i)} onFocus={()=>setStory(i)}><span className="thumb"><div className="art"><img src={s.image} alt={s.alt}/></div></span><span><span className="names">{s.names}</span><span className="where">{s.place} · {s.venue}</span></span><span className="go">↗</span></a>)}</div>
             <aside className="preview" aria-hidden="true"><div className="frame">{stories.map((s,i)=><div className={`pv ${story===i?'on':''}`} key={s.names}><div className="art"><img src={s.image} alt=""/></div></div>)}</div><p className="cap">{stories[story].venue}</p></aside>
           </div>
-        </div></section>
+        </div></Reveal></section>
 
-        <section className="approach" id="approach"><div className="wrap approach-grid"><div className="stick"><p className="eyebrow">Our approach</p><h2>From first thought to <em>final farewell.</em></h2><p>Clarity in the beautiful complexity. We plan with intuition and design with intention, bringing every moving part into harmony so that you and your people can simply experience the moment.</p></div><div className="steps"><div className="step"><p className="eyebrow">First</p><h3>Listen closely</h3><p>We begin with the two of you: your history, priorities and the feeling you want your wedding to hold.</p></div><div className="step"><p className="eyebrow">Then</p><h3>Design with intention</h3><p>A cohesive creative direction shapes every touchpoint, from the first welcome to the last dance.</p></div><div className="step"><p className="eyebrow">Finally</p><h3>Bring it all together</h3><p>We lead the people, production and pace so every element arrives exactly where it should.</p></div></div></div></section>
+        <section className="approach" id="approach"><Reveal><div className="wrap approach-grid"><div className="stick"><p className="eyebrow">Our approach</p><h2>From first thought to <em>final farewell.</em></h2><p>Clarity in the beautiful complexity. We plan with intuition and design with intention, bringing every moving part into harmony so that you and your people can simply experience the moment.</p></div><div className="steps"><div className="step"><p className="eyebrow">First</p><h3>Listen closely</h3><p>We begin with the two of you: your history, priorities and the feeling you want your wedding to hold.</p></div><div className="step"><p className="eyebrow">Then</p><h3>Design with intention</h3><p>A cohesive creative direction shapes every touchpoint, from the first welcome to the last dance.</p></div><div className="step"><p className="eyebrow">Finally</p><h3>Bring it all together</h3><p>We lead the people, production and pace so every element arrives exactly where it should.</p></div></div></div></Reveal></section>
 
-        <section className="quiz" id="feel"><div className="wrap quiz-grid"><div className="intro"><p className="eyebrow">Before we speak</p><h2>What should your day <em>feel</em> like?</h2><p>Three quick questions. There are no prices and no packages here, just a first picture of the celebration you are imagining, which you can share with us.</p></div><div>
+        <section className="quiz" id="feel"><Reveal><div className="wrap quiz-grid"><div className="intro"><p className="eyebrow">Before we speak</p><h2>What should your day <em>feel</em> like?</h2><p>Three quick questions. There are no prices and no packages here, just a first picture of the celebration you are imagining, which you can share with us.</p></div><div>
           {quizStep < questions.length ? <><div className="q-progress"><span>Question {quizStep+1} of 3</span>{questions.map((_,i)=><i key={i} className={i<quizStep?'done':''}></i>)}</div><h3 className="q-title">{questions[quizStep].q}</h3><div className={`opts ${quizStep>0?'three':''}`}>{questions[quizStep].opts.map(([a,b])=><button key={a} className="opt" type="button" onClick={()=>answer(a)}><b>{a}</b><small>{b}</small></button>)}</div>{quizStep>0&&<button className="q-back" onClick={()=>setQuizStep(v=>v-1)}>Back</button>}</> : <div className="result"><div className="tags">{Object.values(answers).map(v=><span key={v}>{v}</span>)}</div><h3>{answers.setting === 'Sea' ? 'Salt air and open horizons' : answers.setting === 'Palace' ? 'Courtyards and lamplight' : answers.setting === 'City' ? 'The city, dressed for the night' : 'Open sky and long tables'}</h3><p className="l2">{answers.pace === 'Lively' ? 'Music that finds its own momentum.' : answers.pace === 'A bit of both' ? 'Quiet by day, louder by night.' : 'Slow mornings, long lunches, nothing rushed.'}</p><p className="l3">{answers.people === 'Intimate' ? 'Held close, with the people who matter most.' : answers.people === 'Family, all of it' ? 'Every relative and every ritual, each given its time.' : 'A large room, planned so it still feels personal.'}</p><div className="actions"><a className="btn" href={waLink(`Hi ${OWNER}, we took your quiz. We’re imagining ${answers.setting}, ${answers.pace}, ${answers.people}. Could we talk about our date?`)} target="_blank" rel="noopener">Share this with {OWNER} ↗</a><button className="btn ghost" onClick={()=>{setQuizStep(0);setAnswers({})}}>Start again</button></div></div>}
-        </div></div></section>
+        </div></div></Reveal></section>
 
-        <section className="quote"><div className="wrap"><p>“What remains is not the planning, but the feeling of a day <em>beautifully lived.</em>”</p><span className="mark-inf">E∞A</span></div></section>
+        <section className="quote"><Reveal><div className="wrap"><p>“What remains is not the planning, but the feeling of a day <em>beautifully lived.</em>”</p><span className="mark-inf">E∞A</span></div></Reveal></section>
 
-        <section className="enquire" id="enquire"><div className="wrap enq-grid"><div className="enq-copy"><p className="eyebrow">Begin your story</p><h2>Tell us what <em>you’re imagining.</em></h2><p>Share the basics and we’ll respond personally within two working days to arrange a first conversation.</p><dl className="direct"><div><dt>WhatsApp and phone</dt><dd><a href="tel:+919167411088">+91 91674 11088</a></dd></div><div><dt>Email</dt><dd><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a></dd></div><div><dt>Based in</dt><dd>Mumbai · Bahrain · Worldwide</dd></div></dl></div>
+        <section className="enquire" id="enquire"><Reveal><div className="wrap enq-grid"><div className="enq-copy"><p className="eyebrow">Begin your story</p><h2>Tell us what <em>you’re imagining.</em></h2><p>Share the basics and we’ll respond personally within two working days to arrange a first conversation.</p><dl className="direct"><div><dt>WhatsApp and phone</dt><dd><a href="tel:+919167411088">+91 91674 11088</a></dd></div><div><dt>Email</dt><dd><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a></dd></div><div><dt>Based in</dt><dd>Mumbai · Bahrain · Worldwide</dd></div></dl></div>
           <form className="form" onSubmit={submit} noValidate><div className="field"><label>Your name</label><input value={name} onChange={e=>setName(e.target.value)} required/><span className="err">{!name.trim() && sent ? 'Please add your name so we know who to reply to.' : ''}</span></div><div className="field"><label>Phone / WhatsApp</label><input value={phone} onChange={e=>setPhone(e.target.value)} type="tel"/></div><div className="field"><label>Wedding location</label><input value={city} onChange={e=>setCity(e.target.value)} placeholder="City or venue"/></div><div className="field"><label>Wedding month</label><select value={month} onChange={e=>setMonth(e.target.value)}><option value="">Not decided yet</option>{months.map(m=><option key={m}>{m}</option>)}</select></div><div className="field full"><label>Tell us about your celebration</label><textarea value={note} onChange={e=>setNote(e.target.value)} placeholder="Rituals, guest count, the feeling you want"/></div><div className="form-foot"><button className="btn" type="submit">Start the conversation ↗</button><small>Your details stay private and are only used to respond to your enquiry.</small></div>{sent&&name.trim()&&<div className="sent"><h3>Your message is ready</h3><p>It opens in WhatsApp with your details filled in. Nothing is sent until you press send there.</p><a className="btn" href={enquiryHref} target="_blank" rel="noopener">Open WhatsApp ↗</a></div>}</form>
-        </div></section>
+        </div></Reveal></section>
       </main>
 
       <footer className="foot"><div className="wrap"><div className="foot-grid"><div><a className="mark" href="/"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a><p style={{marginTop:14,color:'var(--ink-soft)',maxWidth:'22em'}}>Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.</p></div><div><h4>Explore</h4><ul><li><a href="/celebrations">Celebrations</a></li><li><a href="/approach">Our approach</a></li><li><a href="/feel">Find your feeling</a></li><li><a href="/plan">Plan with us</a></li></ul></div><div><h4>Say hello</h4><ul><li className="addr"><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a></li><li className="addr"><a href="tel:+919167411088">+91 91674 11088</a></li><li><a href="https://www.instagram.com/everafter.ind.in/" target="_blank" rel="noopener">Instagram ↗</a></li></ul></div></div><div className="tiny"><span>© 2026 Ever After Weddings</span><span>Concept by Copywrk</span></div></div></footer>
