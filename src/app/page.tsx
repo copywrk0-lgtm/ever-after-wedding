@@ -111,7 +111,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="site-header">
+      <header className="site-header home-header">
         <div className="wrap bar">
           <a className="mark" href="/" aria-label="Ever After Weddings, home"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a>
           <nav className="nav" aria-label="Main"><a href="/celebrations">Celebrations</a><a href="/approach">Approach</a><a href="/feel">Find your feeling</a><a className="btn" href="/plan">Plan with us</a></nav>
@@ -119,38 +119,44 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="reference-hero">
-          <div className="reference-hero-media"><img src="/images/0007-227c860a.webp" alt="Wedding celebration at a beautifully decorated venue in Udaipur" width={1800} height={2250} fetchPriority="high" /></div>
-          <div className="reference-hero-overlay"></div>
-          <div className="reference-hero-content">
-            <Reveal delay={.08} y={42}>
-              <p className="reference-kicker">WEDDING PLANNING &amp; DESIGN · MUMBAI · BAHRAIN</p>
-              <h1>More Than<br/><em>A Wedding</em></h1>
-              <p className="reference-sub">Celebrations that feel natural, meaningful and distinctly personal.</p>
-              <div className="reference-actions">
-                <a className="gold-pill" href="/plan">CHECK YOUR DATE <span>↗</span></a>
-                <a className="outline-pill" href="#celebrations">EXPLORE OUR WORK <span>↓</span></a>
+        <section className="yuga-hero" aria-label="Meet Yuga">
+          <div className="yuga-noise" />
+          <div className="yuga-topline">
+            <a className="yuga-menu" href="#celebrations"><span className="menu-lines"><i/><i/></span> MENU</a>
+            <a className="yuga-logo" href="/"><b>E<i>∞</i>A</b><span>EVER AFTER</span><small>WEDDINGS</small></a>
+            <a className="yuga-plan" href="/plan">PLAN WITH US ↗</a>
+          </div>
+
+          <div className="yuga-watermark" aria-hidden="true">EVER<br/><em>AFTER</em></div>
+
+          <div className="yuga-copy yuga-copy-left">
+            <Reveal delay={.1} y={28}>
+              <p className="yuga-kicker">WEDDING PLANNER · MUMBAI · BAHRAIN</p>
+              <h1>Meet <em>Yuga</em></h1>
+              <p>Not just a wedding planner, but your calm in the chaos. Your eye for the unseen details, and the one who feels your story before designing it.</p>
+            </Reveal>
+          </div>
+
+          <div className="yuga-portrait-wrap">
+            <Reveal delay={.18} y={70}>
+              <div className="yuga-portrait">
+                <img src="/images/yuga-hero.jpg" alt="Yuga, founder of Ever After Weddings, seated and smiling" width={604} height={1244} fetchPriority="high" />
               </div>
             </Reveal>
           </div>
-          <div className="reference-scroll"><span>SCROLL TO EXPLORE</span><i></i></div>
-        </section>
 
-        <section className="reference-day">
-          <Reveal>
-            <div className="day-wrap">
-              <div className="day-clock">{fmt(time)}</div>
-              <button className="day-play" type="button" onClick={()=>setPlaying(v=>!v)}>{playing?'PAUSE THE DAY':'PLAY THE DAY'}</button>
-              <input className="day-range" type="range" min="6" max="23.5" step=".25" value={time} onChange={e=>{setPlaying(false);setTime(Number(e.target.value))}} aria-label="Time of day on the wedding day" />
-              <div className="day-copy">
-                <p className="day-eyebrow">A SAMPLE DAY · UDAIPUR</p>
-                <h2>{events[eventIndex].title}</h2>
-                <p>{events[eventIndex].body}</p>
-              </div>
-              <div className="day-stops">{events.map((e,i)=><button key={e.t} className={eventIndex===i?'active':''} onClick={()=>{setPlaying(false);setTime(e.t)}}>{fmt(e.t)} <span>{e.short}</span></button>)}</div>
-              <p className="day-note">A sample run of show. Every real day is built around your rituals.</p>
-            </div>
-          </Reveal>
+          <div className="yuga-copy yuga-copy-right">
+            <Reveal delay={.28} y={28}>
+              <p>She believes in <strong>“perfect weddings.”</strong> She believes in your wedding: the one that feels like stolen glances, inside jokes, and moments that stay long after the lights fade.</p>
+              <a className="yuga-cta" href="/plan">START WITH YOUR STORY <span>↗</span></a>
+            </Reveal>
+          </div>
+
+          <div className="yuga-bottom">
+            <span>EVER AFTER INDIA</span>
+            <span>SCROLL TO EXPLORE ↓</span>
+            <span>EST. FOR THE BEAUTIFUL &amp; UNEXPECTED</span>
+          </div>
         </section>
 
         <section className="belief"><Reveal><div className="wrap belief-grid"><p className="eyebrow">We believe</p><div><p className="big">The most memorable celebrations aren’t defined by how grand they are, but by how <em>seamlessly</em> they unfold.</p><p className="sub">Intuitive planning. Intentional design. A day beautifully lived.</p></div></div></Reveal></section>

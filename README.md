@@ -1,32 +1,22 @@
-# Ever After Weddings
+# Ever After Weddings — Vercel-ready
 
-Vercel-ready Next.js 16 wedding planner site.
+Premium multi-page wedding planner site for Ever After Weddings.
 
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-## Production build
-
-```bash
-npm run build
-npm start
-```
+## Current homepage direction
+- Yuga-centered editorial hero
+- Black / monochrome visual treatment
+- Centered seated portrait
+- Staggered reveal animations
+- Existing celebrations, approach, feeling and enquiry pages
+- Concierge chatbot + WhatsApp CTA
+- Responsive mobile layout
 
 ## Deploy to Vercel
+1. Upload this folder to GitHub.
+2. Import the repository into Vercel.
+3. Framework: Next.js.
+4. Build command: `npm run build`.
+5. Install command: `npm install`.
+6. No environment variables are required for the current static/demo experience.
 
-Import this folder/repository into Vercel. Framework preset: **Next.js**. Build command: `npm run build`. Output directory: **leave blank/default** (Next.js manages `.next`). No environment variables are required for the current static/WhatsApp flow.
-
-## Routes
-
-- `/` — main Ever After experience
-- `/celebrations` — celebration archive
-- `/celebrations/nikki-ravi` — story
-- `/celebrations/yugandhara-ninad` — story
-- `/celebrations/gitika-anish` — story
-- `/approach` — planning approach
-- `/feel` — interactive feeling quiz
-- `/plan` — enquiry / WhatsApp CTA
+The site uses the included assets under `public/images`.
