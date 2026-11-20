@@ -213,9 +213,9 @@
   }
 }
 
-/* Improve the image presentation on desktop too — real colour photography, no artificial grayscale. */
+/* Ever After hero image — monochrome editorial treatment. */
 .hero-photo img{
-  filter:none;
+  filter:grayscale(1) contrast(1.03) !important;
 }
 
 /* --- EVER AFTER GLASS HEADER POLISH --- */
